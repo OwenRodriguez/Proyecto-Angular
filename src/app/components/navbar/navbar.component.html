@@ -1,0 +1,42 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Westing</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" routerLink="">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/products" *ngIf="token!=null">Products</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/category" *ngIf="token!=null">Category</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/login" *ngIf="token==null">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLink="/register" *ngIf="token==null">Register</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="http://www.facebook.com" *ngIf="token==null">Facebook</a>
+        </li>
+        <li class="nav-item dropdown" *ngIf="token!=undefined">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Active reservations</a>
+            <a class="dropdown-item" href="#">Favorites</a>
+            <a class="dropdown-item" routerLink='/user/userSettings'>User settings</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" (click)="logOut()">Cerrar sesión</a>
+          </div>
+        </li>
+
+      </ul>
+      <img *ngIf="token!=null" src="../../../assets/img/logout.png" alt="LogOut" (click)="logOut()">
+    </div>
+  </nav>
